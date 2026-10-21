@@ -1,0 +1,63 @@
+# Keeps the committed stats panels fresh (assets/stats-dark.svg, stats-light.svg).
+#
+# The generator is a plain stdlib Python script: it fetches the profile numbers
+# from api.github.com, repaints both SVGs, and exits 0 with a warning if GitHub
+# is unavailable - so a GraphQL/REST hiccup can never fail this workflow, and a
+# stale-but-valid panel simply stays in place.
+name: Refresh profile stats
+
+on:
+  schedule:
+    # daily at 03:17 UTC - a few minutes off the hour, where runners are quieter
+    - cron: "17 3 * * *"
+  workflow_dispatch:
+  push:
+    # regenerate when the renderer itself changes; asset-only pushes are
+    # filtered out here, which is what stops the bot commit from looping
+    paths:
+      - "scripts/generate_stats.py"
+      - ".github/workflows/refresh-profile.yml"
+
+permissions:
+  contents: write
+
+# never let two refreshes race on the same branch
+concurrency:
+  group: refresh-profile-stats
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    name: Regenerate stats panels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Render stats SVGs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Exits 0 without writing anything when the API is unavailable; the
+        # script validates the SVG and replaces files atomically, so a bad run
+        # leaves the committed panels byte-for-byte intact.
+        run: python scripts/generate_stats.py --out assets --date "$(date -u +%F)"
+
+      - name: Commit refreshed assets
+        # Only touch the two generated files, and only when their content
+        # actually changed - an unchanged day produces no commit at all.
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- assets/stats-dark.svg assets/stats-light.svg; then
+            echo "stats already current; nothing to commit"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- assets/stats-dark.svg assets/stats-light.svg
+          git commit -m "chore: refresh profile stats"
+          git push
