@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
-"""Render the iCxin profile stats panel (assets/stats-dark.svg, assets/stats-light.svg).
+"""Render the iCxin stats strip (assets/stats-dark.svg, assets/stats-light.svg).
 
-The panel is a 1600x300 instrument readout with three zones:
-  (a) big numbers      PUBLIC REPOS / STARS / COMMITS (90d)
-  (b) language mix     stacked byte bar + 4 legend rows
-  (c) 90-day activity  90 daily contribution bars with month marks
+A flat 1600x260 editorial technical sheet, three fields:
+  (a) numerals       PUBLIC REPOS / STARS / CONTRIBUTIONS (last 90 days)
+  (b) language mix   14px stacked byte bar on a 0-100 scale + ranked legend
+  (c) activity       90 daily contribution ticks with month marks
 
-Design contract: _gh/DESIGN.md "Stats panel" (palette tokens only, mono type,
-20px intrinsic minimum, geometry identical across themes, no external refs).
+Design contract: _gh/DESIGN-v2.md "Stats strip" (paper/ink/muted/hairline/
+accent only, mono 16px labels, flat fields separated by 1px hairlines, no
+radius, no gradient, no shadow, geometry identical across themes).
 
 Data:
   live   REST /users/<login>, /users/<login>/repos?type=owner, per-repo
@@ -52,73 +53,65 @@ USER_AGENT = "icxin-profile-stats (+https://github.com/iCxin)"
 # explicit and short: it is a judgement call, not a statistic.
 EXCLUDED_VENDORED = frozenset({"SingleFile-scau"})
 
-CANVAS_W, CANVAS_H = 1600, 300
-PAD = 56
+CANVAS_W, CANVAS_H = 1600, 260
+PAD_L, PAD_R = 64, 1536          # content trim, both edges
 
 # type
 MONO = ("ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, "
         "'Liberation Mono', monospace")
+DISPLAY = "'Helvetica Neue', Helvetica, Arial, sans-serif"
 
-# zone geometry (intrinsic px)
-DIVIDER_TOP, DIVIDER_BOTTOM = 96, 282
-DIV_X1, DIV_X2 = 656, 1104
-ZONE_A_X = (56, 644)
-ZONE_B_X = (684, 1080)
-ZONE_C_X = (1132, 1544)
-OVERLINE_Y = 118
-
-BAR_W, BAR_H, BAR_Y = 380, 22, 136
-LEGEND_TOP, LEGEND_PITCH = 174, 21
-ACTIVITY_BASE, ACTIVITY_TOP = 244, 132
-SERIES_COUNT = 5          # ramp slots s1..s5 in the bar
-LEGEND_ROWS = SERIES_COUNT + 1   # five series plus the folded remainder
+# flat editorial grid (intrinsic px). No cards, no radius: fields are
+# separated by 1px hairlines and paper only.
+EYEBROW_Y = 32
+HEAD_RULE_Y = 46
+LABEL_Y = 84
+ZONE_A_X = (64, 430)
+ZONE_B_X = (470, 980)
+ZONE_C_X = (1020, 1536)
+GROUP_EDGES = (64, 190, 290, 430)   # three numeral fields, rules at the seams
+FIELD_X = (64, 204, 304)            # numeral/caption origin inside each field
+GROUP_RULE_TOP, GROUP_RULE_BOTTOM = 76, 190
+NUM_Y = 136                          # numeral baseline (72px)
+CAP_Y = 164                          # mono caption baseline
+CAP2_Y = 182                         # second caption line (90-day scope)
+BAR_Y, BAR_H = 96, 14
+SCALE_Y = 120                        # 0/25/50/75/100 hairline
+LEGEND_TOP, LEGEND_PITCH, LEGEND_COL = 152, 22, 255
+ACT_BASE, ACT_MAX_H = 202, 76
+MONTH_Y = 226
+SERIES_COUNT = 5
+LABEL_TRACK = 2.24                   # 0.14em at 16px
+CAPTION_TRACK = 0.0                  # captions run tight: the fields are narrow
 
 THEMES = {
     "dark": {
-        "bg": "#0B1020",
-        "bg2": "#121A2E",
-        "grid": "#1E2A45",
-        "ink": "#F3F6FA",
-        "muted": "#93A2BC",
-        "brass": "#E8B44A",
-        "brassDeep": "#8A5F16",
-        "signal": "#5BE2D0",
-        "steel": "#2B3852",
-        "steelHi": "#3C4C6B",
-        "steelLo": "#1A2438",
-        # data-series ramp (DESIGN.md) + neutral remainder
-        "s1": "#E8B44A",
-        "s2": "#5BE2D0",
-        "s3": "#8C9AC0",
-        "s4": "#4E5F86",
-        "s5": "#33415F",
-        "other": "#1E2A45",
+        "paper": "#0C0D0F",
+        "ink": "#F0EDE6",
+        "muted": "#8A857B",
+        "hairline": "#23252A",
+        "accent": "#FF5C3A",
     },
     "light": {
-        "bg": "#F7F5F0",
-        "bg2": "#FFFFFF",
-        "grid": "#E4DFD4",
-        "ink": "#131922",
-        "muted": "#5B6675",
-        "brass": "#A9701A",
-        "brassDeep": "#7A4E10",
-        "signal": "#0E8F80",
-        "steel": "#D9D3C7",
-        "steelHi": "#EFEAE0",
-        "steelLo": "#C4BDAD",
-        # data-series ramp (DESIGN.md) + neutral remainder
-        "s1": "#A9701A",
-        "s2": "#0E8F80",
-        "s3": "#5C6E96",
-        "s4": "#3E4E70",
-        "s5": "#96A0B4",
-        "other": "#E4DFD4",
+        "paper": "#F4F1EA",
+        "ink": "#101215",
+        "muted": "#6E6A62",
+        "hairline": "#D5CEC0",
+        "accent": "#D93E24",
     },
 }
 
-# "Data-series ramp" from DESIGN.md: five theme-safe series colours, used in
-# order from the largest language down; the remainder always uses `grid`.
-SERIES_TOKENS = ("s1", "s2", "s3", "s4", "s5")
+# Series ramp (DESIGN v2): accent first, then ink, then muted steps. The
+# remainder of the bar is a flat hairline field - "no data" is a hairline in
+# this system, never a lighter colour. Opacities are identical in both themes
+# so the two SVGs stay geometrically identical.
+SERIES_RAMP = (
+    ("accent", None),
+    ("ink", None),
+    ("muted", None),
+    ("muted", "0.70"),
+    ("muted", "0.45"),
+)
 
 # Languages whose bytes are markup/styling rather than authored program logic.
 # They still count in every percentage (which is a share of ALL language bytes)
@@ -155,14 +148,14 @@ def num(value: int) -> str:
 
 
 def number_size(text: str) -> int:
-    """Shrink the 64px readout when a value gets long, keeping one fixed grid."""
-    if len(text) <= 3:
-        return 64
-    if len(text) == 4:
-        return 56
+    """Keep the 72px numeral unless a value would run out of its field."""
+    if len(text) <= 4:
+        return 72
     if len(text) == 5:
-        return 48
-    return 40
+        return 62
+    if len(text) == 6:
+        return 54
+    return 46
 
 
 def svg_text(x, y, body, size, fill, *, anchor="start", weight=None,
@@ -472,8 +465,9 @@ def language_slices(snapshot):
     """Five ramp series plus the folded remainder, in tenths of a percent.
 
     Series are the five largest authoring languages by bytes. Markup bytes fold
-    into the remainder, but the percentages stay shares of ALL language bytes,
-    so the five rows plus `other` always sum to 100.0%.
+    into the remainder, and every percentage stays a share of ALL language
+    bytes, so the five series plus the unfilled part of the bar account for
+    100.0% of what GitHub counts.
     """
     items = [item for item in snapshot["languages"]["items"]
              if int(item.get("bytes") or 0) > 0]
@@ -500,167 +494,158 @@ def activity_bars(snapshot):
 # --------------------------------------------------------------------------- #
 
 def render(snapshot, theme_name: str, stamp: str | None = None) -> str:
+    """Draw the flat editorial stats strip; geometry is theme-independent."""
     palette = THEMES[theme_name]
     totals = snapshot["totals"]
     window = snapshot["window"]
-    slices, tail_tenths = language_slices(snapshot)
+    slices, _tail_tenths = language_slices(snapshot)
     counts, peak = activity_bars(snapshot)
     updated = stamp or str(snapshot.get("generated_at", ""))[:10] or window["to"]
+    hair = palette["hairline"]
 
     body = []
-    # ---- canvas ---------------------------------------------------------- #
-    body.append('<g id="frame">')
-    body.append(rect(0, 0, CANVAS_W, CANVAS_H, palette["bg"], rx=16))
-    body.append(rect(0.5, 0.5, CANVAS_W - 1, CANVAS_H - 1,
-                     "none", rx=16, stroke=palette["grid"]))
+
+    # ---- sheet: one flat field. no card, no radius, no shadow ------------ #
+    body.append('<g id="sheet">')
+    body.append(rect(0, 0, CANVAS_W, CANVAS_H, palette["paper"]))
     body.append("</g>")
 
     # ---- header ---------------------------------------------------------- #
     body.append('<g id="header">')
-    body.append(rect(PAD, 38, 18, 3, palette["brass"], rx=1.5))
-    body.append(svg_text(PAD + 30, 50, "BENCH \u00b7 INSTRUMENT READOUT",
-                         20, palette["muted"], spacing=3))
-    body.append(svg_text(CANVAS_W - PAD, 50, "updated " + updated,
-                         20, palette["muted"], anchor="end"))
+    body.append(svg_text(PAD_L, EYEBROW_Y,
+                         "SPECIFICATION \u00b7 UPDATED " + updated,
+                         16, palette["ink"], spacing=LABEL_TRACK))
+    body.append(svg_text(PAD_R, EYEBROW_Y, "SCALE 1:1", 16, palette["muted"],
+                         anchor="end", spacing=LABEL_TRACK))
+    body.append(line(0, HEAD_RULE_Y, CANVAS_W, HEAD_RULE_Y, hair))
     body.append("</g>")
 
-    # ---- zone separators ------------------------------------------------- #
-    body.append('<g id="rules">')
-    for x in (DIV_X1, DIV_X2):
-        body.append(line(x, DIVIDER_TOP, x, DIVIDER_BOTTOM, palette["grid"]))
-    body.append("</g>")
-
-    # ---- (a) big numbers ------------------------------------------------- #
+    # ---- (a) three numeral fields ---------------------------------------- #
     body.append('<g id="zone-a">')
     cells = (
-        ("01", "PUBLIC REPOS", num(totals["repos"])),
-        ("02", "STARS", num(totals["stars"])),
-        # same contributionCalendar sum as the activity bars: one source of truth
-        ("03", "CONTRIBUTIONS \u00b7 90D", num(totals["contributions_90d"])),
+        ("PUBLIC REPOS", num(totals["repos"]), None),
+        ("STARS", num(totals["stars"]), None),
+        ("CONTRIBUTIONS", num(totals["contributions_90d"]), "LAST 90 DAYS"),
     )
-    cell_x = (ZONE_A_X[0], 236, 416)
-    for (index, caption, value), x in zip(cells, cell_x):
-        body.append(svg_text(x, OVERLINE_Y, index, 20, palette["brass"],
-                             spacing=2))
-        body.append(svg_text(x, 146, caption, 20, palette["muted"]))
+    for field, (caption, value, second) in zip(FIELD_X, cells):
         size = number_size(value)
-        body.append(svg_text(x, 224, value, size, palette["ink"],
-                             weight="600", spacing=-1 if size >= 56 else 0))
-        body.append(rect(x, 242, 42, 3, palette["brass"], rx=1.5))
+        body.append(svg_text(field, NUM_Y, value, size, palette["ink"],
+                             weight="700", spacing=-0.04 * size,
+                             family=DISPLAY))
+        body.append(svg_text(field, CAP_Y, caption, 16, palette["muted"],
+                             spacing=CAPTION_TRACK))
+        if second:
+            body.append(svg_text(field, CAP2_Y, second, 16,
+                                 palette["muted"], spacing=CAPTION_TRACK))
+    for x in GROUP_EDGES[1:-1]:
+        body.append(line(x, GROUP_RULE_TOP, x, GROUP_RULE_BOTTOM, hair))
     body.append("</g>")
 
     # ---- (b) language mix ------------------------------------------------ #
     body.append('<g id="zone-b">')
-    lang_total = int(snapshot["languages"].get("total_bytes") or 0)
-    body.append(svg_text(ZONE_B_X[0], OVERLINE_Y, "LANGUAGE MIX", 20,
-                         palette["muted"], spacing=2))
-    body.append(svg_text(ZONE_B_X[1] - 16, OVERLINE_Y,
-                         "BY BYTES \u00b7 %d" % int(totals.get("languages") or 0),
-                         20, palette["muted"], anchor="end", spacing=1,
-                         opacity="0.7"))
-    body.append(rect(ZONE_B_X[0], BAR_Y, BAR_W, BAR_H,
-                     palette["bg2"], rx=2, stroke=palette["grid"]))
+    bx0, bx1 = ZONE_B_X
+    bw = float(bx1 - bx0)
+    body.append(svg_text(bx0, LABEL_Y, "LANGUAGE MIX \u00b7 BY BYTES", 16,
+                         palette["muted"], spacing=LABEL_TRACK))
+    total_bytes = int(snapshot["languages"].get("total_bytes") or 0)
 
-    tokens = SERIES_TOKENS
-    if slices and lang_total > 0:
-        edges = [float(ZONE_B_X[0])]
+    if slices and total_bytes > 0:
+        edges = [float(bx0)]
         for item in slices:
-            edges.append(edges[-1] + item["bytes"] * BAR_W / float(lang_total))
-        edges.append(float(ZONE_B_X[0] + BAR_W))
-        # segments sit 2px inside the rounded track and are separated by 1px
-        # gaps, so neighbouring neutral tones stay readable in both themes
-        inner_y, inner_h = BAR_Y + 2, BAR_H - 4
-        plan = [(edges[i], edges[i + 1], palette[tokens[i]])
-                for i in range(len(slices))]
-        plan.append((edges[len(slices)], edges[-1], palette["other"]))
-        for index, (x0, x1, color) in enumerate(plan):
-            gap_l = 1.0 if index > 0 else 0.0
-            gap_r = 1.0 if index < len(plan) - 1 else 0.0
+            edges.append(edges[-1] + item["bytes"] * bw / float(total_bytes))
+        edges.append(float(bx1))
+        # 1px gaps carved out of the seams; the remainder is a bare hairline
+        # field rather than another colour
+        for index in range(len(edges) - 1):
+            x0, x1 = edges[index], edges[index + 1]
+            gap_l = 0.5 if index > 0 else 0.0
+            gap_r = 0.5 if index < len(edges) - 2 else 0.0
             width = x1 - x0 - gap_l - gap_r
             if width <= 0:
                 continue
-            body.append(rect(x0 + gap_l, inner_y, width, inner_h, color))
-        # label the remainder inline when the neutral track is wide enough
-        tail_x, tail_w = edges[len(slices)], edges[-1] - edges[len(slices)]
-        if tail_w >= 54:
-            body.append(svg_text(tail_x + tail_w / 2.0, BAR_Y + 16,
-                                 "other", 20, palette["muted"],
-                                 anchor="middle"))
-        body.append(rect(ZONE_B_X[0], BAR_Y, BAR_W, BAR_H, "none", rx=2,
-                         stroke=palette["grid"]))
-
-        legend = [(item["name"], palette[tokens[row]], item["tenths"],
-                   palette["ink"]) for row, item in enumerate(slices)]
-        legend.append(("other", palette["other"], tail_tenths,
-                       palette["muted"]))
-        for row, (name, color, tenths, ink) in enumerate(legend):
+            if index < len(slices):
+                token, opacity = SERIES_RAMP[index]
+                body.append(rect(x0 + gap_l, BAR_Y, width, BAR_H,
+                                 palette[token], opacity=opacity))
+            else:
+                body.append(rect(x0 + gap_l, BAR_Y, width, BAR_H, hair))
+        # 0 / 25 / 50 / 75 / 100 scale on a hairline
+        body.append(line(bx0, SCALE_Y, bx1, SCALE_Y, hair))
+        for pct in (0, 25, 50, 75, 100):
+            tx = bx0 + bw * pct / 100.0
+            body.append(line(tx, SCALE_Y, tx, SCALE_Y + 4, hair))
+        # legend: five ranked entries, two columns, down then across
+        rows = (len(slices) + 1) // 2
+        for index, item in enumerate(slices):
+            token, opacity = SERIES_RAMP[index]
+            col, row = index // rows, index % rows
+            x = bx0 + col * LEGEND_COL
             y = LEGEND_TOP + row * LEGEND_PITCH
-            body.append(rect(ZONE_B_X[0], y - 9, 13, 13, color, rx=2))
-            body.append(rect(ZONE_B_X[0], y - 9, 13, 13, "none", rx=2,
-                             stroke=palette["muted"], sw=0.75,
-                             opacity="0.45"))
-            body.append(svg_text(ZONE_B_X[0] + 24, y + 6, name, 22, ink))
-            body.append(svg_text(ZONE_B_X[1] - 16, y + 6,
-                                 "%.1f%%" % (tenths / 10.0), 22,
+            body.append(rect(x, y - 7, 9, 9, palette[token], opacity=opacity))
+            body.append(svg_text(x + 17, y, item["name"], 16, palette["ink"]))
+            body.append(svg_text(x + LEGEND_COL - 18, y,
+                                 "%.1f%%" % (item["tenths"] / 10.0), 16,
                                  palette["muted"], anchor="end"))
     else:
-        body.append(svg_text(ZONE_B_X[0], BAR_Y + 16,
-                             "language data unavailable", 20,
-                             palette["muted"]))
+        body.append(svg_text(bx0, BAR_Y + 12, "LANGUAGE DATA UNAVAILABLE",
+                             16, palette["muted"], spacing=CAPTION_TRACK))
     body.append("</g>")
 
-    # ---- (c) 90-day activity -------------------------------------------- #
+    # ---- (c) 90-day activity --------------------------------------------- #
     body.append('<g id="zone-c">')
-    # no second total here: the big number and these bars are the same series
-    body.append(svg_text(ZONE_C_X[0], OVERLINE_Y, "ACTIVITY \u00b7 90 DAYS",
-                         20, palette["muted"], spacing=3))
-    span = float(ZONE_C_X[1] - ZONE_C_X[0])
+    cx0, cx1 = ZONE_C_X
+    span = float(cx1 - cx0)
+    body.append(svg_text(cx0, LABEL_Y, "CONTRIBUTIONS \u00b7 90 DAYS", 16,
+                         palette["muted"], spacing=LABEL_TRACK))
+    body.append(line(cx0, ACT_BASE, cx1, ACT_BASE, hair))
     pitch = span / float(WINDOW_DAYS)
-    bar_w = max(2.4, pitch - 1.5)
-    body.append(line(ZONE_C_X[0], ACTIVITY_BASE, ZONE_C_X[1], ACTIVITY_BASE,
-                     palette["grid"]))
-    height_span = float(ACTIVITY_BASE - ACTIVITY_TOP)
-    labels = []
+    tick_w = 2.0
     for index, count in enumerate(counts):
-        x = ZONE_C_X[0] + index * pitch + (pitch - bar_w) / 2.0
+        # integer x keeps 2px ticks from going grey at 1:1 raster
+        x = float(int(round(cx0 + index * pitch + (pitch - tick_w) / 2.0)))
         if count <= 0:
-            body.append(rect(x, ACTIVITY_BASE - 4, bar_w, 4, palette["grid"]))
+            # a zero day is a 1px hairline sitting on the baseline
+            body.append(rect(x, ACT_BASE - 4, 1, 4, hair))
+            continue
+        ratio = count / float(peak) if peak else 1.0
+        height = 4.0 + (ACT_MAX_H - 4.0) * ratio
+        if count == peak:
+            body.append(rect(x, ACT_BASE - height, tick_w, height,
+                             palette["accent"]))
         else:
-            ratio = count / float(peak) if peak else 1.0
-            height = 12 + (height_span - 12) * ratio
-            body.append(rect(x, ACTIVITY_BASE - height, bar_w, height,
-                             palette["brass"]))
-        stamp_day = _as_date(snapshot["daily"][index]["date"])
+            body.append(rect(x, ACT_BASE - height, tick_w, height,
+                             palette["ink"], opacity="0.55"))
+    # month marks, nudged apart so neighbours never collide
+    labels = []
+    for index, day in enumerate(snapshot["daily"]):
+        stamp_day = _as_date(day["date"])
         if stamp_day.day == 1 or index == 0:
-            labels.append((x + bar_w / 2.0, MONTHS[stamp_day.month - 1]))
-            body.append(line(x + bar_w / 2.0, ACTIVITY_BASE,
-                             x + bar_w / 2.0, ACTIVITY_BASE + 5,
-                             palette["muted"], opacity="0.8"))
-    # month marks: 20px, nudged apart so neighbours never collide
-    right_limit = ZONE_C_X[1]
+            labels.append((cx0 + index * pitch + (pitch - tick_w) / 2.0,
+                           MONTHS[stamp_day.month - 1]))
     previous_right = None
     for x, label in labels:
-        width = len(label) * 12.0
+        width = len(label) * 11.2
         start = max(x - 1.0, 0.0)
         if previous_right is not None and start < previous_right + 12.0:
             start = previous_right + 12.0
-        if start + width > right_limit:
-            start = right_limit - width
-        body.append(svg_text(start, 274, label, 20, palette["muted"],
-                             spacing=1))
+        if start + width > cx1:
+            start = cx1 - width
+        body.append(svg_text(start, MONTH_Y, label, 16, palette["muted"],
+                             spacing=1.6))
         previous_right = start + width
     body.append("</g>")
 
-    desc = ("%s's GitHub snapshot: %s public repositories, %s stars, %s "
-            "contributions in the last 90 days; language mix and daily "
-            "activity bars. Source: https://github.com/%s (api.github.com)."
+    desc = ("%s's GitHub snapshot as a flat specification sheet: %s public "
+            "repositories, %s stars, %s contributions in the last 90 days, "
+            "the language mix by byte share and the daily contribution "
+            "trace. Source: https://github.com/%s (api.github.com)."
             % (LOGIN, num(totals["repos"]), num(totals["stars"]),
                num(totals["contributions_90d"]), LOGIN))
     svg = [
         '<?xml version="1.0" encoding="UTF-8"?>',
         '<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" '
         'viewBox="0 0 %d %d" role="img">' % (CANVAS_W, CANVAS_H, CANVAS_W, CANVAS_H),
-        "<title>iCxin \u00b7 profile stats (%s)</title>" % theme_name,
+        "<title>iCxin \u00b7 specification strip (%s)</title>" % theme_name,
         "<desc>%s</desc>" % esc(desc),
         "\n".join(body),
         "</svg>",
