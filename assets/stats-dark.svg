@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="260" viewBox="0 0 1600 260" role="img">
 <title>iCxin · specification strip (dark)</title>
-<desc>iCxin's GitHub snapshot as a flat specification sheet: 25 public repositories, 4 stars, 51 contributions in the last 90 days, the language mix by byte share and the daily contribution trace. Source: https://github.com/iCxin (api.github.com).</desc>
+<desc>iCxin's GitHub snapshot as a flat specification sheet: 25 public repositories, 5 stars, 51 contributions in the last 90 days, the language mix by byte share and the daily contribution trace. Source: https://github.com/iCxin (api.github.com).</desc>
 <g id="sheet">
 <rect x="0" y="0" width="1600" height="260" fill="#0C0D0F"/>
 </g>
 <g id="header">
-<text x="64" y="32" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#F0EDE6" letter-spacing="2.24">SPECIFICATION · UPDATED 2026-10-22</text>
+<text x="64" y="32" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#F0EDE6" letter-spacing="2.24">SPECIFICATION · UPDATED 2026-10-23</text>
 <text x="1536" y="32" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" text-anchor="end" letter-spacing="2.24">SCALE 1:1</text>
 <line x1="0" y1="46" x2="1600" y2="46" stroke="#23252A" stroke-width="1"/>
 </g>
 <g id="zone-a">
 <text x="64" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#F0EDE6" font-weight="700" letter-spacing="-2.88">25</text>
 <text x="64" y="164" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="0">PUBLIC REPOS</text>
-<text x="204" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#F0EDE6" font-weight="700" letter-spacing="-2.88">4</text>
+<text x="204" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#F0EDE6" font-weight="700" letter-spacing="-2.88">5</text>
 <text x="204" y="164" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="0">STARS</text>
 <text x="304" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#F0EDE6" font-weight="700" letter-spacing="-2.88">51</text>
 <text x="304" y="164" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="0">CONTRIBUTIONS</text>
@@ -96,15 +96,15 @@
 <rect x="1245" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1251" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1257" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1263" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1268" y="162" width="2" height="40" fill="#F0EDE6" opacity="0.55"/>
-<rect x="1274" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1280" y="180" width="2" height="22" fill="#F0EDE6" opacity="0.55"/>
+<rect x="1263" y="162" width="2" height="40" fill="#F0EDE6" opacity="0.55"/>
+<rect x="1268" y="198" width="1" height="4" fill="#23252A"/>
+<rect x="1274" y="180" width="2" height="22" fill="#F0EDE6" opacity="0.55"/>
+<rect x="1280" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1286" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1291" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1297" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1303" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1309" y="192" width="2" height="10" fill="#F0EDE6" opacity="0.55"/>
+<rect x="1303" y="192" width="2" height="10" fill="#F0EDE6" opacity="0.55"/>
+<rect x="1309" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1314" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1320" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1326" y="198" width="1" height="4" fill="#23252A"/>
@@ -113,10 +113,10 @@
 <rect x="1343" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1349" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1354" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1360" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1366" y="189" width="2" height="13" fill="#F0EDE6" opacity="0.55"/>
-<rect x="1372" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1377" y="195" width="2" height="7" fill="#F0EDE6" opacity="0.55"/>
+<rect x="1360" y="189" width="2" height="13" fill="#F0EDE6" opacity="0.55"/>
+<rect x="1366" y="198" width="1" height="4" fill="#23252A"/>
+<rect x="1372" y="195" width="2" height="7" fill="#F0EDE6" opacity="0.55"/>
+<rect x="1377" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1383" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1389" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1395" y="198" width="1" height="4" fill="#23252A"/>
@@ -137,16 +137,16 @@
 <rect x="1481" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1486" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1492" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1498" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1503" y="189" width="2" height="13" fill="#F0EDE6" opacity="0.55"/>
+<rect x="1498" y="189" width="2" height="13" fill="#F0EDE6" opacity="0.55"/>
+<rect x="1503" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1509" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1515" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1521" y="198" width="1" height="4" fill="#23252A"/>
-<rect x="1526" y="126" width="2" height="76" fill="#FF5C3A"/>
+<rect x="1521" y="126" width="2" height="76" fill="#FF5C3A"/>
+<rect x="1526" y="198" width="1" height="4" fill="#23252A"/>
 <rect x="1532" y="198" width="1" height="4" fill="#23252A"/>
 <text x="1020.87" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="1.6">JUL</text>
 <text x="1066.47" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="1.6">AUG</text>
-<text x="1238.73" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="1.6">SEP</text>
-<text x="1410.73" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="1.6">OCT</text>
+<text x="1233" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="1.6">SEP</text>
+<text x="1405" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="1.6">OCT</text>
 </g>
 </svg>
