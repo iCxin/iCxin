@@ -89,7 +89,7 @@ function slab(c){
     s += L(cx, RIB_TOP+6, cx, RIB_BOT-6, c.hair, 1, ' stroke-dasharray="2 5" opacity="0.9"');
   }
 
-  s += T(RX, 116, 13, c.muted, MONO, 400, '2.4', 'FIG. 01 \u00b7 RIB SECTION');
+  s += T(RX, 116, 16, c.muted, MONO, 400, '2.4', 'FIG. 01 \u00b7 RIB SECTION');
 
   const dx0 = RIB_C[0], dx1 = RIB_C[RIB_COUNT-1], dy = 140;
   s += L(dx0, dy, dx1, dy, c.muted, 1);
@@ -99,13 +99,13 @@ function slab(c){
     s += L(x, dy-3.5, x, dy+3.5, c.muted, 1, ' opacity="0.55"');
   }
   s += R((dx0+dx1)/2 - 30, dy-13, 60, 26, c.paper);
-  s += T((dx0+dx1)/2, dy+6, 15, c.muted, MONO, 400, '2.4', '4200', 'middle');
+  s += T((dx0+dx1)/2, dy+6, 17, c.muted, MONO, 400, '2.4', '4200', 'middle');
 
   const vx = RX - 26;
   s += L(vx, FLANGE_T, vx, RIB_BOT, c.muted, 1);
   s += L(vx-6, FLANGE_T, vx+6, FLANGE_T, c.muted, 1);
   s += L(vx-6, RIB_BOT, vx+6, RIB_BOT, c.muted, 1);
-  s += '<text x="'+(vx-13)+'" y="'+((FLANGE_T+RIB_BOT)/2)+'" font-family="'+MONO+'" font-size="15" letter-spacing="2.4" fill="'+c.muted+'" text-anchor="middle" transform="rotate(-90 '+(vx-13)+' '+((FLANGE_T+RIB_BOT)/2)+')">960</text>';
+  s += '<text x="'+(vx-13)+'" y="'+((FLANGE_T+RIB_BOT)/2)+'" font-family="'+MONO+'" font-size="17" letter-spacing="2.4" fill="'+c.muted+'" text-anchor="middle" transform="rotate(-90 '+(vx-13)+' '+((FLANGE_T+RIB_BOT)/2)+')">960</text>';
 
   const NOTES = [
     { i:0, text:'ribbed-floor',  dy:34 },
@@ -117,15 +117,15 @@ function slab(c){
     const cx = RIB_C[n.i], ty = RIB_BOT + n.dy;
     s += L(cx, RIB_BOT, cx, ty-15, c.muted, 1, ' opacity="0.75"');
     s += C(cx, RIB_BOT, 2.4, c.muted);
-    s += T(cx, ty, 15, c.muted, MONO, 400, '1.2', n.text, 'middle');
+    s += T(cx, ty, 17, c.muted, MONO, 400, '1.2', n.text, 'middle');
   }
   return s;
 }
 
 function typeBlock(c){
   let s = '';
-  s += T(M, 64, 14, c.muted, MONO, 400, '3.2', 'iCXIN \u00b7 ENGINEERING PORTFOLIO');
-  s += T(W-M, 64, 14, c.muted, MONO, 400, '2.6', 'SELECTED WORKS / 2024\u20132026', 'end');
+  s += T(M, 64, 18, c.muted, MONO, 400, '3.2', 'iCXIN \u00b7 ENGINEERING PORTFOLIO');
+  s += T(W-M, 64, 18, c.muted, MONO, 400, '2.6', 'SELECTED WORKS / 2024\u20132026', 'end');
 
   s += T(M-6, 300, 196, c.ink, SANS, 700, '-12', 'CXIN');
   s += R(M, 328, 104, 4, c.accent);
@@ -135,20 +135,20 @@ function typeBlock(c){
   s += T(M+2, 434, 18, c.muted, MONO, 400, '2.8', 'FROM PIXELS TO CONCRETE');
 
   s += '<g class="pulse">'+R(M+1, 474, 9, 9, c.accent)+'</g>';
-  s += T(M+22, 483, 16, c.muted, MONO, 400, '1.4', 'building scrcpy-desk');
+  s += T(M+22, 483, 17, c.muted, MONO, 400, '1.4', 'building scrcpy-desk');
 
   s += L(M, 512, M+150, 512, c.hair, 1);
-  s += T(M, 536, 13, c.muted, MONO, 400, '2.6', 'STRUCTURE \u00b7 EDGE \u00b7 DESKTOP \u00b7 WEB');
+  s += T(M, 536, 16, c.muted, MONO, 400, '2.6', 'STRUCTURE \u00b7 EDGE \u00b7 DESKTOP \u00b7 WEB');
   return s;
 }
 
 function furniture(c){
   let s = '';
   s += L(M, 566, W-M, 566, c.hair, 1);
-  s += T(M, 592, 13, c.muted, MONO, 400, '2.2', 'SECTION A\u2013A \u00b7 RIBBED SLAB \u00b7 1:20');
-  s += T(W-M, 592, 13, c.muted, MONO, 400, '2.2', 'SHEET 01 / 01', 'end');
+  s += T(M, 592, 16, c.muted, MONO, 400, '2.2', 'SECTION A\u2013A \u00b7 RIBBED SLAB \u00b7 1:20');
+  s += T(W-M, 592, 16, c.muted, MONO, 400, '2.2', 'SHEET 01 / 01', 'end');
   const rx = 36, ry = 462;
-  s += '<text x="'+rx+'" y="'+ry+'" font-family="'+MONO+'" font-size="11.5" letter-spacing="4" fill="'+c.muted+'" opacity="0.8" transform="rotate(-90 '+rx+' '+ry+')">DRAWING NO. CX-2026-01</text>';
+  s += '<text x="'+rx+'" y="'+ry+'" font-family="'+MONO+'" font-size="14" letter-spacing="4" fill="'+c.muted+'" opacity="0.8" transform="rotate(-90 '+rx+' '+ry+')">DRAWING NO. CX-2026-01</text>';
   return s;
 }
 
