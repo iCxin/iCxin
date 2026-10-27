@@ -32,7 +32,7 @@
 | `04` | [qqmusic-lyric-guard](https://github.com/iCxin/qqmusic-lyric-guard) | 让 QQ 音乐桌面歌词的「解锁」胶囊彻底消失：空窗口区域、零闪烁、不常驻 | `C#` |
 | `05` | [xiaomi-mimo-usage](https://github.com/iCxin/xiaomi-mimo-usage) | 直接读引擎本地 SQLite 的用量看板，运行时一次网都不出 | `Python` |
 
-单文件的还有[拟物空调遥控器](https://github.com/iCxin/air-conditioner-remote)、[水利团学工作台](https://github.com/iCxin/txgzt)，以及若干"双击就能跑"的小实验。
+其余几个"双击就能跑"的单文件小实验已经收起来，不再单独列出。
 
 ## 03 · 范围
 
