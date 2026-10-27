@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="260" viewBox="0 0 1600 260" role="img">
 <title>iCxin · specification strip (dark)</title>
-<desc>iCxin's GitHub snapshot as a flat specification sheet: 14 public repositories, 4 stars, 32 contributions in the last 90 days, the language mix by byte share and the daily contribution trace. Source: https://github.com/iCxin (api.github.com).</desc>
+<desc>iCxin's GitHub snapshot as a flat specification sheet: 7 public repositories, 4 stars, 32 contributions in the last 90 days, the language mix by byte share and the daily contribution trace. Source: https://github.com/iCxin (api.github.com).</desc>
 <g id="sheet">
 <rect x="0" y="0" width="1600" height="260" fill="#0C0D0F"/>
 </g>
@@ -11,7 +11,7 @@
 <line x1="0" y1="46" x2="1600" y2="46" stroke="#23252A" stroke-width="1"/>
 </g>
 <g id="zone-a">
-<text x="64" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#F0EDE6" font-weight="700" letter-spacing="-2.88">14</text>
+<text x="64" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#F0EDE6" font-weight="700" letter-spacing="-2.88">7</text>
 <text x="64" y="164" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="0">PUBLIC REPOS</text>
 <text x="204" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#F0EDE6" font-weight="700" letter-spacing="-2.88">4</text>
 <text x="204" y="164" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#8A857B" letter-spacing="0">STARS</text>
