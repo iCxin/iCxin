@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="260" viewBox="0 0 1600 260" role="img">
 <title>iCxin · specification strip (light)</title>
-<desc>iCxin's GitHub snapshot as a flat specification sheet: 7 public repositories, 5 stars, 34 contributions in the last 90 days, the language mix by byte share and the daily contribution trace. Source: https://github.com/iCxin (api.github.com).</desc>
+<desc>iCxin's GitHub snapshot as a flat specification sheet: 8 public repositories, 5 stars, 39 contributions in the last 90 days, the language mix by byte share and the daily contribution trace. Source: https://github.com/iCxin (api.github.com).</desc>
 <g id="sheet">
 <rect x="0" y="0" width="1600" height="260" fill="#F4F1EA"/>
 </g>
 <g id="header">
-<text x="64" y="32" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215" letter-spacing="2.24">SPECIFICATION · UPDATED 2026-11-06</text>
+<text x="64" y="32" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215" letter-spacing="2.24">SPECIFICATION · UPDATED 2026-11-07</text>
 <text x="1536" y="32" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end" letter-spacing="2.24">SCALE 1:1</text>
 <line x1="0" y1="46" x2="1600" y2="46" stroke="#D5CEC0" stroke-width="1"/>
 </g>
 <g id="zone-a">
-<text x="64" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#101215" font-weight="700" letter-spacing="-2.88">7</text>
+<text x="64" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#101215" font-weight="700" letter-spacing="-2.88">8</text>
 <text x="64" y="164" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="0">PUBLIC REPOS</text>
 <text x="204" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#101215" font-weight="700" letter-spacing="-2.88">5</text>
 <text x="204" y="164" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="0">STARS</text>
-<text x="304" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#101215" font-weight="700" letter-spacing="-2.88">34</text>
+<text x="304" y="136" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="72" fill="#101215" font-weight="700" letter-spacing="-2.88">39</text>
 <text x="304" y="164" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="0">CONTRIBUTIONS</text>
 <text x="304" y="182" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="0">LAST 90 DAYS</text>
 <line x1="190" y1="76" x2="190" y2="190" stroke="#D5CEC0" stroke-width="1"/>
@@ -23,12 +23,12 @@
 </g>
 <g id="zone-b">
 <text x="470" y="84" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="2.24">LANGUAGE MIX · BY BYTES</text>
-<rect x="470" y="96" width="180.03" height="14" fill="#D93E24"/>
-<rect x="651.03" y="96" width="177.24" height="14" fill="#101215"/>
-<rect x="829.27" y="96" width="42.11" height="14" fill="#6E6A62"/>
-<rect x="872.38" y="96" width="39.11" height="14" fill="#6E6A62" opacity="0.70"/>
-<rect x="912.49" y="96" width="24.92" height="14" fill="#6E6A62" opacity="0.45"/>
-<rect x="938.41" y="96" width="41.59" height="14" fill="#D5CEC0"/>
+<rect x="470" y="96" width="162.15" height="14" fill="#D93E24"/>
+<rect x="633.15" y="96" width="159.59" height="14" fill="#101215"/>
+<rect x="793.74" y="96" width="55.39" height="14" fill="#6E6A62"/>
+<rect x="850.12" y="96" width="37.84" height="14" fill="#6E6A62" opacity="0.70"/>
+<rect x="888.96" y="96" width="35.14" height="14" fill="#6E6A62" opacity="0.45"/>
+<rect x="925.1" y="96" width="54.9" height="14" fill="#D5CEC0"/>
 <line x1="470" y1="120" x2="980" y2="120" stroke="#D5CEC0" stroke-width="1"/>
 <line x1="470" y1="120" x2="470" y2="124" stroke="#D5CEC0" stroke-width="1"/>
 <line x1="597.5" y1="120" x2="597.5" y2="124" stroke="#D5CEC0" stroke-width="1"/>
@@ -37,19 +37,19 @@
 <line x1="980" y1="120" x2="980" y2="124" stroke="#D5CEC0" stroke-width="1"/>
 <rect x="470" y="145" width="9" height="9" fill="#D93E24"/>
 <text x="487" y="152" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215">Rust</text>
-<text x="707" y="152" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end">35.4%</text>
+<text x="707" y="152" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end">31.9%</text>
 <rect x="470" y="167" width="9" height="9" fill="#101215"/>
 <text x="487" y="174" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215">C++</text>
-<text x="707" y="174" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end">34.9%</text>
+<text x="707" y="174" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end">31.5%</text>
 <rect x="470" y="189" width="9" height="9" fill="#6E6A62"/>
-<text x="487" y="196" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215">TypeScript</text>
-<text x="707" y="196" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end">8.5%</text>
+<text x="487" y="196" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215">JavaScript</text>
+<text x="707" y="196" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end">11.1%</text>
 <rect x="725" y="145" width="9" height="9" fill="#6E6A62" opacity="0.70"/>
-<text x="742" y="152" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215">Python</text>
-<text x="962" y="152" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end">7.9%</text>
+<text x="742" y="152" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215">TypeScript</text>
+<text x="962" y="152" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end">7.6%</text>
 <rect x="725" y="167" width="9" height="9" fill="#6E6A62" opacity="0.45"/>
-<text x="742" y="174" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215">JavaScript</text>
-<text x="962" y="174" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end">5.1%</text>
+<text x="742" y="174" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215">Python</text>
+<text x="962" y="174" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end">7.1%</text>
 </g>
 <g id="zone-c">
 <text x="1020" y="84" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="2.24">CONTRIBUTIONS · 90 DAYS</text>
@@ -81,8 +81,8 @@
 <rect x="1159" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1165" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1171" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1177" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1182" y="131.54" width="2" height="70.46" fill="#101215" opacity="0.55"/>
+<rect x="1177" y="131.54" width="2" height="70.46" fill="#101215" opacity="0.55"/>
+<rect x="1182" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1188" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1194" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1200" y="198" width="1" height="4" fill="#D5CEC0"/>
@@ -98,8 +98,8 @@
 <rect x="1257" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1263" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1268" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1274" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1280" y="181.38" width="2" height="20.62" fill="#101215" opacity="0.55"/>
+<rect x="1274" y="181.38" width="2" height="20.62" fill="#101215" opacity="0.55"/>
+<rect x="1280" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1286" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1291" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1297" y="198" width="1" height="4" fill="#D5CEC0"/>
@@ -122,18 +122,18 @@
 <rect x="1395" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1400" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1406" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1412" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1417" y="181.38" width="2" height="20.62" fill="#101215" opacity="0.55"/>
+<rect x="1412" y="181.38" width="2" height="20.62" fill="#101215" opacity="0.55"/>
+<rect x="1417" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1423" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1429" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1435" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1440" y="126" width="2" height="76" fill="#D93E24"/>
+<rect x="1435" y="126" width="2" height="76" fill="#D93E24"/>
+<rect x="1440" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1446" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1452" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1458" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1463" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1469" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1475" y="181.38" width="2" height="20.62" fill="#101215" opacity="0.55"/>
+<rect x="1469" y="181.38" width="2" height="20.62" fill="#101215" opacity="0.55"/>
+<rect x="1475" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1481" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1486" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1492" y="198" width="1" height="4" fill="#D5CEC0"/>
@@ -142,11 +142,11 @@
 <rect x="1509" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1515" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1521" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1526" y="198" width="1" height="4" fill="#D5CEC0"/>
+<rect x="1526" y="170.31" width="2" height="31.69" fill="#101215" opacity="0.55"/>
 <rect x="1532" y="198" width="1" height="4" fill="#D5CEC0"/>
 <text x="1020.87" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">AUG</text>
-<text x="1152.73" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">SEP</text>
-<text x="1324.73" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">OCT</text>
-<text x="1502.4" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">NOV</text>
+<text x="1147" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">SEP</text>
+<text x="1319" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">OCT</text>
+<text x="1496.73" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">NOV</text>
 </g>
 </svg>
