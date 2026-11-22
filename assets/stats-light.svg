@@ -6,7 +6,7 @@
 <rect x="0" y="0" width="1600" height="260" fill="#F4F1EA"/>
 </g>
 <g id="header">
-<text x="64" y="32" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215" letter-spacing="2.24">SPECIFICATION · UPDATED 2026-11-21</text>
+<text x="64" y="32" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#101215" letter-spacing="2.24">SPECIFICATION · UPDATED 2026-11-22</text>
 <text x="1536" y="32" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" text-anchor="end" letter-spacing="2.24">SCALE 1:1</text>
 <line x1="0" y1="46" x2="1600" y2="46" stroke="#D5CEC0" stroke-width="1"/>
 </g>
@@ -66,8 +66,8 @@
 <rect x="1073" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1079" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1085" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1091" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1096" y="147.18" width="2" height="54.82" fill="#101215" opacity="0.55"/>
+<rect x="1091" y="147.18" width="2" height="54.82" fill="#101215" opacity="0.55"/>
+<rect x="1096" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1102" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1108" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1114" y="198" width="1" height="4" fill="#D5CEC0"/>
@@ -83,8 +83,8 @@
 <rect x="1171" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1177" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1182" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1188" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1194" y="185.29" width="2" height="16.71" fill="#101215" opacity="0.55"/>
+<rect x="1188" y="185.29" width="2" height="16.71" fill="#101215" opacity="0.55"/>
+<rect x="1194" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1200" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1205" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1211" y="198" width="1" height="4" fill="#D5CEC0"/>
@@ -107,18 +107,18 @@
 <rect x="1309" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1314" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1320" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1326" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1331" y="185.29" width="2" height="16.71" fill="#101215" opacity="0.55"/>
+<rect x="1326" y="185.29" width="2" height="16.71" fill="#101215" opacity="0.55"/>
+<rect x="1331" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1337" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1343" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1349" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1354" y="142.94" width="2" height="59.06" fill="#101215" opacity="0.55"/>
+<rect x="1349" y="142.94" width="2" height="59.06" fill="#101215" opacity="0.55"/>
+<rect x="1354" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1360" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1366" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1372" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1377" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1383" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1389" y="185.29" width="2" height="16.71" fill="#101215" opacity="0.55"/>
+<rect x="1383" y="185.29" width="2" height="16.71" fill="#101215" opacity="0.55"/>
+<rect x="1389" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1395" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1400" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1406" y="198" width="1" height="4" fill="#D5CEC0"/>
@@ -127,13 +127,13 @@
 <rect x="1423" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1429" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1435" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1440" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1446" y="176.82" width="2" height="25.18" fill="#101215" opacity="0.55"/>
-<rect x="1452" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1458" y="172.59" width="2" height="29.41" fill="#101215" opacity="0.55"/>
-<rect x="1463" y="126" width="2" height="76" fill="#D93E24"/>
-<rect x="1469" y="198" width="1" height="4" fill="#D5CEC0"/>
-<rect x="1475" y="151.41" width="2" height="50.59" fill="#101215" opacity="0.55"/>
+<rect x="1440" y="176.82" width="2" height="25.18" fill="#101215" opacity="0.55"/>
+<rect x="1446" y="198" width="1" height="4" fill="#D5CEC0"/>
+<rect x="1452" y="172.59" width="2" height="29.41" fill="#101215" opacity="0.55"/>
+<rect x="1458" y="126" width="2" height="76" fill="#D93E24"/>
+<rect x="1463" y="198" width="1" height="4" fill="#D5CEC0"/>
+<rect x="1469" y="151.41" width="2" height="50.59" fill="#101215" opacity="0.55"/>
+<rect x="1475" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1481" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1486" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1492" y="198" width="1" height="4" fill="#D5CEC0"/>
@@ -145,8 +145,8 @@
 <rect x="1526" y="198" width="1" height="4" fill="#D5CEC0"/>
 <rect x="1532" y="198" width="1" height="4" fill="#D5CEC0"/>
 <text x="1020.87" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">AUG</text>
-<text x="1066.73" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">SEP</text>
-<text x="1238.73" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">OCT</text>
-<text x="1416.47" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">NOV</text>
+<text x="1066.47" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">SEP</text>
+<text x="1233" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">OCT</text>
+<text x="1410.73" y="226" font-family="ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, 'Liberation Mono', monospace" font-size="16" fill="#6E6A62" letter-spacing="1.6">NOV</text>
 </g>
 </svg>
